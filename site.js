@@ -21,8 +21,10 @@ const createExtensionElement = (extension) => {
         }
     
         default: {
-            const url = `${location.protocol}//${location.host}/extensions/${extension.id}/ext.js`;
+            let base = location.href.split("/");
 
+            const url = `${base}/ext.js`;
+ 
             container.className = "extension";
 
             const name = document.createElement("h3");
