@@ -21,9 +21,7 @@ const createExtensionElement = (extension) => {
         }
     
         default: {
-            let base = location.href.split("/");
-
-            const url = `${base}/ext.js`;
+            const url = `${window.location.href}extensions/${extension.id}/ext.js`;
  
             container.className = "extension";
 
