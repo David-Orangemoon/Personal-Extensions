@@ -21,6 +21,8 @@ const createExtensionElement = (extension) => {
         }
     
         default: {
+            const url = `${location.protocol}//${location.host}/extensions/${extension.id}/ext.js`;
+
             container.className = "extension";
 
             const name = document.createElement("h3");
@@ -36,24 +38,40 @@ const createExtensionElement = (extension) => {
             const buttonHolder = document.createElement("div");
             buttonHolder.className = "extensionButtons"
 
-            const copyCode = document.createElement("button");
-            copyCode.innerText = "Copy Code";
-            copyCode.style.setProperty("--color-1", "#2c61d4");
-            copyCode.style.setProperty("--color-2", "#1d50be");
-            
-            const copyURL = document.createElement("button");
-            copyURL.innerText = "Copy URL";
-            copyURL.style.setProperty("--color-1", "#2c88d4");
-            copyURL.style.setProperty("--color-2", "#146ab1");
-            
-            const openInMist = document.createElement("button");
-            openInMist.innerText = "Open in Mist-Warp";
-            openInMist.style.setProperty("--color-1", "#c02cd4");
-            openInMist.style.setProperty("--color-2", "#9d10af");
+            if (extension.type == "artimus") {
+                const copyURL = document.createElement("button");
+                copyURL.innerText = "Copy URL";
+                copyURL.style.setProperty("--color-1", "#2c88d4");
+                copyURL.style.setProperty("--color-2", "#146ab1");
+                copyURL.onclick = () => { navigator.clipboard.writeText(extension.url || url); }
 
-            buttonHolder.appendChild(copyCode);
-            buttonHolder.appendChild(copyURL);
-            buttonHolder.appendChild(openInMist);
+                buttonHolder.appendChild(copyURL);
+            }
+            else {
+                const copyCode = document.createElement("button");
+                copyCode.innerText = "Copy Code";
+                copyCode.style.setProperty("--color-1", "#2c61d4");
+                copyCode.style.setProperty("--color-2", "#1d50be");
+                copyCode.onclick = () => { fetch(url).then(res => res.text()).then((text) => {
+                    navigator.clipboard.writeText(text);
+                })}
+                
+                const copyURL = document.createElement("button");
+                copyURL.innerText = "Copy URL";
+                copyURL.style.setProperty("--color-1", "#2c88d4");
+                copyURL.style.setProperty("--color-2", "#146ab1");
+                copyURL.onclick = () => { navigator.clipboard.writeText(url); }
+                
+                const openInMist = document.createElement("a");
+                openInMist.innerText = "Open in Mist-Warp";
+                openInMist.style.setProperty("--color-1", "#c02cd4");
+                openInMist.style.setProperty("--color-2", "#9d10af");
+                openInMist.href = `https://warp.mistium.com/editor?extension=${url}`;
+
+                buttonHolder.appendChild(copyCode);
+                buttonHolder.appendChild(copyURL);
+                buttonHolder.appendChild(openInMist);
+            }
 
             container.appendChild(name);
             container.appendChild(description);

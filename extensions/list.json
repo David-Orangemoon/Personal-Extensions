@@ -9,5 +9,13 @@
             "Library Integrations",
             { "id": "chiptuneJS", "name": "Chiptune JS" }
         ]
+    },
+    {
+        "type": "category",
+        "name": "For Artimus",
+        "contents": [
+            "Tools",
+            { "type": "artimus", "id": "badApple", "name": "Bad Apple", "url": "https://raw.githubusercontent.com/David-Orangemoon/ArtimusBadApple/refs/heads/main/main.json" }
+        ]
     }
 ]
