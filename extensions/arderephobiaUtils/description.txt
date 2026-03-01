@@ -1,0 +1,1 @@
+Code originally meant for Arderephobia Update 1 (Rekindled) but now it is a general purpose simple variable extension.

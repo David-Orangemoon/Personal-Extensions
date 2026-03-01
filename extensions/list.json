@@ -1,0 +1,13 @@
+[
+    {
+        "type": "category",
+        "name": "For Turbowarp",
+        "contents": [
+            "Tools",
+            { "id": "arderephobiaUtils", "name": "Arderephobia Utilities" },
+            { "id": "extendedNavigator", "name": "Extended Navigator" },
+            "Library Integrations",
+            { "id": "chiptuneJS", "name": "Chiptune JS" }
+        ]
+    }
+]

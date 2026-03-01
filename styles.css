@@ -1,0 +1,51 @@
+body {
+    font-family: monospace;
+
+    --background-1: #000f2f;
+    --background-2: #000313;
+    --background-3: #000010;
+    --text-1: #00a3ff;
+
+    background: url(images/stars.gif);
+    color: var(--text-1)
+}
+
+button {
+    background-color: var(--color-1);
+
+    border-style: solid;
+    border-radius: 16px;
+    border-width: 4px;
+    border-color: var(--color-2);
+}
+
+button:hover {
+    background-color: var(--color-2);
+    border-color: var(--color-1);
+}
+
+button:active {
+    background-color: var(--color-2);
+    border-color: var(--color-2);
+}
+
+.centerText {
+    text-align: center;
+}
+
+.hyperlinks {
+    display: flex;
+    justify-content: center;
+    image-rendering: pixelated;
+}
+
+.extension {
+    background-color: var(--background-1);
+    border-radius: 16px;
+}
+
+.extensionButtons {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-2);
+}
